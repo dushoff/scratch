@@ -21,20 +21,15 @@ dat <- data.frame(x=x, y=y
                   , village=as.factor(village)
 )
 
-## Naive lm works, but not so clear what it does
+## Naive lmer works, default behaviour is like our "base"
 formula <- y~x+country+religion+(1|village)
 summary(lmer(formula, data=dat))
 
-## Now set the NAs to really be NAs
-# dat <- droplevels(within(dat, {
-#   religion[country==3] <- NA
-# }))
-
-## Set NAs to base level; this matches the default behaviour (but without the dummy level, so better)
-summary(lmerFill(y~x+country+religion+(1|village), data=dat, NArows = dat$country==3, fillvar="religion", me="base"))
+## Set NAs to base level; this matches the default behaviour
+summary(lmerFill(y~x+country+religion+(1|village), data=dat, NArows = dat$country==3, fillvar="religion", method="base"))
 
 ## Set NAs to model center, or variable mean, or whatever we should call it
 ## Seems better
 ## Interestingly (but sensibly), this changes only the value estimated for the effect of the country with missing data
-summary(lmerFill(y~x+country+religion+(1|village), data=dat, NArows = dat$country==3, fillvar="religion", me="mean"))
+summary(lmerFill(y~x+country+religion+(1|village), data=dat, NArows = dat$country==3, fillvar="religion", method="mean"))
 

@@ -1,10 +1,10 @@
 # scratch
-### Public or private??
+### Public 
 ### Location???
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: tztest.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: tztestRE.Rout 
 
 ##################################################################
 
@@ -133,6 +133,11 @@ redundancy.Rout: redundancy.R
 
 ## A test
 tztest.Rout: redundancy.Rout tztest.R
+
+tztestRE.Rout:redundancy.Rout tztestRE.R
+
+## A test
+tztest.Rout:
 
 ######################################################################
 

@@ -47,7 +47,6 @@ lmFill <- function(formula, data, NArows, fillvar, method="mean"){
 	return(mfit)
 }
 
-
 lmerFill <- function (formula, data = NULL, NArows, fillvar, method="mean",REML = TRUE, control = lmerControl(), 
                       start = NULL, verbose = 0L, subset, weights, na.action, offset, 
                       contrasts = NULL, devFunOnly = FALSE, ...) 
@@ -74,9 +73,10 @@ lmerFill <- function (formula, data = NULL, NArows, fillvar, method="mean",REML 
   mcout$formula <- lmod$formula
   lmod$formula <- NULL
   varNum <- which(attr(attr(lmod$fr, "terms"), "term.labels")==fillvar)
-  lmod$X <- structFill(lmod$X, NArows, varNum, method)
+  lmod$X <- structFill(lmod$X, NArows, varNum, method, check=FALSE)
   devfun <- do.call(mkLmerDevfun, c(lmod, list(start = start, 
-                                               verbose = verbose, control = control)))
+           verbose = verbose, control = control)))
+	print("devfun")
   if (devFunOnly) 
     return(devfun)
   opt <- if (control$optimizer == "none") 
