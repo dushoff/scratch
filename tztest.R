@@ -27,10 +27,10 @@ dat <- droplevels(within(dat, {
 }))
 
 ## Set NAs to base level; this matches the default behaviour (but without the dummy level, so better)
-summary(lmFill(y~x+country+religion, dat, NArows = dat$country==3, fillvar="religion", method="base"))
+summary(lmFill(y~x+country+religion, dat, NArows = dat$country==3, fillvar="religion", Fillmethod="base"))
 
 ## Set NAs to model center, or variable mean, or whatever we should call it
 ## Seems better
 ## Interestingly (but sensibly), this changes only the value estimated for the effect of the country with missing data
-summary(lmFill(y~x+country+religion, dat, NArows = dat$country==3, fillvar="religion"))
+summary(lmFill(y~x+country+religion, dat, NArows = dat$country==3, fillvar="religion",Fillmethod="mean"))
 

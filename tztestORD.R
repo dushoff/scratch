@@ -25,9 +25,9 @@ dat <- data.frame(x=x, y=y
 formula <- as.factor(y)~x+country+religion+(1|village)
 summary(clmm(formula, data=dat))
 
-summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",method123="base"))
+summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",Fillmethod="base"))
 
-summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",method123="mean"))
+summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",Fillmethod="mean"))
 
 # debug(clmm)
 # undebug(clmm)
