@@ -47,6 +47,15 @@ lmFill <- function(formula, data, NArows, fillvar, method123="mean",check=FALSE)
   return(mfit)
 }
 
+lmerFill <- function(formula, data, NArows, fillvar, method123="mean",check=FALSE){
+  lmod <- lFormula(y~x+country+religion+(1|village), dat)
+  varNum <- which(attr(attr(lmod$fr, "terms"), "term.labels")==fillvar)
+  lmod$X <- structFill(lmod$X, NArows, varNum, method123, check)
+  devfun <- do.call(mkLmerDevfun, lmod)
+  opt <- optimizeLmer(devfun)
+  return(mkMerMod(environment(devfun), opt, lmod$reTrms, fr = lmod$fr))
+}    
+    
 
 clmmFill <- function (formula, data,NArows, fillvar, method123="mean", check=FALSE,weights, start, subset, na.action, contrasts, 
                       Hess = TRUE, model = TRUE, link = c("logit", "probit", "cloglog", 
