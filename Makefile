@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: tztestRE.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: tztestORD.Rout 
 
 ##################################################################
 
@@ -136,8 +136,8 @@ tztest.Rout: redundancy.Rout tztest.R
 
 tztestRE.Rout:redundancy.Rout tztestRE.R
 
-## A test
-tztest.Rout:
+tztestORD.Rout: redundancy.Rout tztestORD.R
+
 
 ######################################################################
 
