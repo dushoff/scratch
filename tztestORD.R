@@ -1,5 +1,6 @@
 
 library(ordinal)
+library(lme4)
 
 ## Some data with a structural NA
 ## Religion not collected from country 3; we added a dummy level ("4")
