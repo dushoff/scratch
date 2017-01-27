@@ -5,7 +5,7 @@ library(ordinal)
 ## depends on functions in redundancy.R
 
 set.seed(1971)
-l <- 40
+l <- 400
 
 y <- sample(1:3, l, prob=1:3, replace=TRUE)
 x <- rnorm(l)
@@ -23,15 +23,17 @@ dat <- data.frame(x=x, y=y
 
 ## Naive lmer works, default behaviour is like our "base"
 formula <- as.factor(y)~x+country+religion+(1|village)
-clmm(formula, data=dat)
+summary(clmm(formula, data=dat))
 
-clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",method123="base")
+summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",method123="base"))
 
-debug(clmm)
-undebug(clmm)
-debug(clmmFill)
-undebug(clmmFill)
+summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",method123="mean"))
 
-debug(ordinal:::getCtrlArgs)
-undebug(ordinal:::getCtrlArgs)
-
+# debug(clmm)
+# undebug(clmm)
+# debug(clmmFill)
+# undebug(clmmFill)
+# 
+# debug(ordinal:::getCtrlArgs)
+# undebug(ordinal:::getCtrlArgs)
+# 
