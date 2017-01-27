@@ -3,13 +3,15 @@
 ## fit a model by setting them either to baseline or mean
 ## Later break this into more functions so we can call the hard one and use it for things other than lm
 
-structFill <- function(mm, NArows, varNum, method123="mean"){
+structFill <- function(mm, NArows, varNum, method123="mean",check){
   
   modAssign <- attr(mm, "assign")
   fillcols <- which(modAssign==varNum)
   
+  if(check){
   dcheck <- na.omit(mm[NArows, fillcols])
   if (length(dcheck)>0){stop("Not all structural NAs are really NA")}
+  }
   
   if(method123=="base")
     mm[NArows, fillcols] <- 0
@@ -26,7 +28,7 @@ structFill <- function(mm, NArows, varNum, method123="mean"){
   return(mm)
 }
 
-lmFill <- function(formula, data, NArows, fillvar, method123="mean"){
+lmFill <- function(formula, data, NArows, fillvar, method123="mean",check=FALSE){
   
   mf <- model.frame(formula, data=data, na.action=NULL)
   mt <- attr(mf, "terms")
@@ -46,7 +48,7 @@ lmFill <- function(formula, data, NArows, fillvar, method123="mean"){
 }
 
 
-clmmFill <- function (formula, data,NArows, fillvar, method123="mean", weights, start, subset, na.action, contrasts, 
+clmmFill <- function (formula, data,NArows, fillvar, method123="mean", check=FALSE,weights, start, subset, na.action, contrasts, 
                       Hess = TRUE, model = TRUE, link = c("logit", "probit", "cloglog", 
                                                           "loglog", "cauchit"), doFit = TRUE, control = list(), 
                       nAGQ = 1L, threshold = c("flexible", "symmetric", "symmetric2", 
@@ -66,8 +68,8 @@ clmmFill <- function (formula, data,NArows, fillvar, method123="mean", weights, 
                                   contrasts)
   if (control$method == "model.frame") 
     return(frames)
-  varNum <- which(attr(attr(frames, "terms"), "term.labels")==fillvar)
-  frames$X <- structFill(frames$X, NArows, varNum, method123)
+  varNum <- which(attr(attr(frames$mf, "terms"), "term.labels")==fillvar)
+  frames$X <- structFill(frames$X, NArows, varNum, method123,check)
   frames$X <- drop.coef(frames$X, silent = FALSE)
   ths <- ordinal:::makeThresholds(levels(frames$y), threshold)
   rho <- with(frames, {
