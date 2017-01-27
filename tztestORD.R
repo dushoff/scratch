@@ -8,7 +8,7 @@ library(ordinal)
 set.seed(2830)
 l <- 400
 
-y <- sample(1:3, l, prob=1:3, replace=TRUE)
+y <- sample(1:2, l, prob=1:2, replace=TRUE)
 x <- rnorm(l)
 religion <- sample(1:3, l, prob=1:3, replace=TRUE)
 country <- sample(1:3, l, prob=1:3, replace=TRUE)
@@ -31,9 +31,18 @@ summary(clmmFill(formula,data=dat,NArows = dat$country==3, fillvar="religion",Fi
 
 # debug(clmm)
 # undebug(clmm)
-debug(clmmFill)
-undebug(clmmFill)
+# debug(clmmFill)
+# undebug(clmmFill)
 # 
 # debug(ordinal:::getCtrlArgs)
 # undebug(ordinal:::getCtrlArgs)
 # 
+
+
+summary(lme4:::glmer(formula,data=dat,family = binomial))
+summary(glmerFill(formula, data=dat, NArows = dat$country==3, fillvar="religion", Fillmethod="base",check=FALSE,family=binomial))
+summary(glmerFill(formula, data=dat, NArows = dat$country==3, fillvar="religion", Fillmethod="mean",check=FALSE,family=binomial))
+
+
+# debug(glmerFill)
+# undebug(glmerFill)

@@ -47,14 +47,27 @@ lmFill <- function(formula, data, NArows, fillvar, Fillmethod="mean",check=FALSE
   return(mfit)
 }
 
+library(lme4)
+
 lmerFill <- function(formula, data, NArows, fillvar, Fillmethod="base",check=FALSE){
-  lmod <- lFormula(y~x+country+religion+(1|village), dat)
+  lmod <- lFormula(formula, data)
   varNum <- which(attr(attr(lmod$fr, "terms"), "term.labels")==fillvar)
   lmod$X <- structFill(lmod$X, NArows, varNum, Fillmethod, check)
   devfun <- do.call(mkLmerDevfun, lmod)
   opt <- optimizeLmer(devfun)
   return(mkMerMod(environment(devfun), opt, lmod$reTrms, fr = lmod$fr))
 }    
+
+glmerFill <- function(formula, data, NArows, fillvar, Fillmethod="base",check=FALSE,family){
+  glmod <- lme4:::glFormula(formula,data,family)
+  varNum <- which(attr(attr(glmod$fr, "terms"), "term.labels")==fillvar)
+  glmod$X <- structFill(glmod$X, NArows, varNum, Fillmethod, check)
+  devfun <- do.call(lme4:::mkGlmerDevfun, glmod)
+  opt <- lme4:::optimizeGlmer(devfun)
+  devfun <- lme4:::updateGlmerDevfun(devfun, glmod$reTrms)
+  opt <- lme4:::optimizeGlmer(devfun, stage=2)
+  return(lme4:::mkMerMod(environment(devfun), opt, glmod$reTrms, fr = glmod$fr))
+}
     
 
 clmmFill <- function (formula, data,NArows, fillvar, Fillmethod="base", check=FALSE,weights, start, subset, na.action, contrasts, 
