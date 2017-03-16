@@ -17,13 +17,15 @@ series <- function(n, max=1000){
 	while(n!=1 & i<max){
 		i <- i+1
 		n <- collStep(n)
-		v[i] <<- n
+		v[i] <- n
 	}
-	length(n) <- i
-	return(n)
+	length(v) <- i
+	return(v)
 }
 
-# series(27)
+series(27)
+
+quit()
 
 x <- seq(from=11, to=211, by=2)
 y <- collStep(x)
