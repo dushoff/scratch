@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: tztestORD.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: collatz.Rout 
 
 ##################################################################
 
@@ -76,11 +76,13 @@ cards.Routput.compare: cards.R
 %.compare: % %.goal
 	diff $* $*.goal > $@
 
+factor.Rout: factor.R
+
+collatz.Rout: collatz.R
+
 ####### Scoring stuff
 
 ### Exploring the Johnson distribution
-
-factor.Rout: factor.R
 
 johnson.Rout: johnson.R
 johnson_test.Rout: johnson.Rout johnson_test.R

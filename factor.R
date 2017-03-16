@@ -3,3 +3,5 @@ factor <- function(x, l=NULL){
 	f <- 1+min(which(x%%(2:x)==0))
 	return(factor(x/f, c(l, f)))
 }
+
+factor(419967)
