@@ -22,6 +22,7 @@ add.Rout: add.R
 add.rdeps: add.R
 
 read.Rout: read.R
+read.rdeps: read.R
 
 ######################################################################
 
