@@ -19,19 +19,18 @@ series <- function(n, max=1000){
 		n <- collStep(n)
 		v[i] <- n
 	}
-	length(v) <- i
-	return(v)
+	return(v[1:i])
 }
 
-series(27)
+print(series(97))
 
-quit()
-
-x <- seq(from=11, to=211, by=2)
+x <- seq(from=11, to=2017, by=2)
 y <- collStep(x)
 
 plot(x, y
 	, type="p"
-	# , log="xy"
+	, log="xy"
 )
-print(data.frame(x, y))
+lines(x, x)
+
+# print(data.frame(x, y))

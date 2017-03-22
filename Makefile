@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: collatz.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: step.Rout 
 
 ##################################################################
 
@@ -162,7 +162,6 @@ genFit.Rout: genFit.R
 
 Sources += talk.Makefile
 
-step.deps: step.R
 step.Rout: step.R
 
 ### Makestuff
