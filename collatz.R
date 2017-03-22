@@ -23,15 +23,14 @@ series <- function(n, max=1000){
 	return(v)
 }
 
-series(27)
+# series(2413)
 
-quit()
-
-x <- seq(from=11, to=211, by=2)
+x <- seq(from=11, to=2011, by=2)
 y <- collStep(x)
 
 plot(x, y
 	, type="p"
-	# , log="xy"
+	, log="xy"
 )
+lines(x, x)
 print(data.frame(x, y))
