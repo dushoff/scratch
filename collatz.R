@@ -22,9 +22,10 @@ series <- function(n, max=1000){
 	return(v[1:i])
 }
 
-print(series(97))
-
 x <- seq(from=11, to=2017, by=2)
+# series(2413)
+
+x <- seq(from=11, to=2011, by=2)
 y <- collStep(x)
 
 plot(x, y
@@ -32,5 +33,9 @@ plot(x, y
 	, log="xy"
 )
 lines(x, x)
+<<<<<<< HEAD
 
 # print(data.frame(x, y))
+=======
+print(data.frame(x, y))
+>>>>>>> 4469dc2f56f3c4975bcb24ebdf3de9e2f8930cf4

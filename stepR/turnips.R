@@ -1,5 +1,5 @@
 load("empire.RData")
 
-print("Truxon")
-
 print(t)
+
+t <- "Ducks"

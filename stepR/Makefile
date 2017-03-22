@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: read.Rout 
+target pngtarget pdftarget vtarget acrtarget: add.rdeps 
 
 ##################################################################
 
@@ -19,9 +19,9 @@ include stuff.mk
 Sources += test.csv $(wildcard *.R)
 
 add.Rout: add.R
+add.rdeps: add.R
 
 read.Rout: read.R
-
 read.rdeps: read.R
 
 ######################################################################
