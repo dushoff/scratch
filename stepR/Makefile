@@ -16,7 +16,7 @@ include stuff.mk
 
 ## Content
 
-Sources += test.csv add.R
+Sources += test.csv $(wildcard *.R)
 
 add.Rout: add.R
 
