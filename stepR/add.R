@@ -1,2 +1,4 @@
-read.csv("test.csv")
-x <- 3+2
+load("test.csv")
+
+x <- 4+4
+
