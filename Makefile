@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: step.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: greek.Rout 
 
 ##################################################################
 
@@ -24,6 +24,8 @@ SIR.out: SIR.py
 	$(PITH)
 
 ##################################################################
+
+greek.Rout: greek.R
 
 ## Shapes Bewketu)
 
