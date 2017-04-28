@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: greek.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: piano.Rout 
 
 ##################################################################
 
@@ -16,6 +16,9 @@ include $(ms)/perl.def
 include $(ms)/python.def
 
 ##################################################################
+
+## Tempering
+piano.Rout: piano.R
 
 ## Sid Reed
 
