@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: piano.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: table.html 
 
 ##################################################################
 
@@ -17,8 +17,15 @@ include $(ms)/python.def
 
 ##################################################################
 
+## Premier league table
+
+table.html: /proc/uptime
+	wget -O $@ "www.bbc.com/sport/football/premier-league/table"
+
 ## Tempering
 piano.Rout: piano.R
+
+##################################################################
 
 ## Sid Reed
 
