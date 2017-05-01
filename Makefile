@@ -17,6 +17,16 @@ include $(ms)/python.def
 
 ##################################################################
 
+## SQ
+
+## Is this a good place for drafts?
+
+Sources += rabies_sq.txt
+
+rabies_sq.txt:
+
+######################################################################
+
 ## Sid Reed
 
 Sources += $(wildcard *.py)
