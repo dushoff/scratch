@@ -26,11 +26,11 @@ Sources += rabies_sq.md rabies_sq.pbm sq.rmu
 rabies_sq.wc: rabies_sq.txt
 	wc $< > $@
 
-## Insane branch where you make your own citations (defunct?)
+## Insane branch where you make your own citations (defunct)
 rabies_sq.mkd: rabies_sq.txt rabies_sq.pbm cite.pl
 	$(PUSH)
 
-## Experimental branch where we learn how to use markdown properly?
+## Experimental branch where we learn how to use markdown properly. Looking better
 rabies_sq.html: rabies_sq.md sq.bib
 	pandoc -s -S --filter=pandoc-citeproc -o $@ $<
 
