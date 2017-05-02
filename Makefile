@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: collatz.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: rabies_sq.wc 
 
 ##################################################################
 
@@ -23,9 +23,20 @@ include $(ms)/python.def
 
 Sources += rabies_sq.txt
 
-rabies_sq.txt:
+rabies_sq.wc: rabies_sq.txt
+	wc $< > $@
 
 ######################################################################
+
+## Premier league table
+
+table.html: /proc/uptime
+	wget -O $@ "www.bbc.com/sport/football/premier-league/table"
+
+## Tempering
+piano.Rout: piano.R
+
+##################################################################
 
 ## Sid Reed
 
@@ -34,6 +45,8 @@ SIR.out: SIR.py
 	$(PITH)
 
 ##################################################################
+
+greek.Rout: greek.R
 
 ## Shapes Bewketu)
 
@@ -172,7 +185,6 @@ genFit.Rout: genFit.R
 
 Sources += talk.Makefile
 
-step.deps: step.R
 step.Rout: step.R
 
 ### Makestuff

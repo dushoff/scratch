@@ -19,10 +19,10 @@ series <- function(n, max=1000){
 		n <- collStep(n)
 		v[i] <- n
 	}
-	length(v) <- i
-	return(v)
+	return(v[1:i])
 }
 
+x <- seq(from=11, to=2017, by=2)
 # series(2413)
 
 x <- seq(from=11, to=2011, by=2)
@@ -33,4 +33,9 @@ plot(x, y
 	, log="xy"
 )
 lines(x, x)
+<<<<<<< HEAD
+
+# print(data.frame(x, y))
+=======
 print(data.frame(x, y))
+>>>>>>> 4469dc2f56f3c4975bcb24ebdf3de9e2f8930cf4
