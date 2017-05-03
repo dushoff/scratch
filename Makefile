@@ -4,7 +4,7 @@
 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: tztestORD.Rout 
+target pngtarget pdftarget vtarget acrtarget pushtarget: rabies_sq.html 
 
 ##################################################################
 
@@ -17,6 +17,39 @@ include $(ms)/python.def
 
 ##################################################################
 
+## SQ
+
+## Is this a good place for drafts?
+
+Sources += rabies_sq.md sq.rmu ptrs.csl
+
+rabies_sq.wc: rabies_sq.txt
+	wc $< > $@
+
+## Insane branch where you make your own citations (defunct)
+rabies_sq.mkd: rabies_sq.txt rabies_sq.pbm cite.pl
+	$(PUSH)
+
+## Experimental branch where we learn how to use markdown properly. Looking better
+rabies_sq.html: rabies_sq.md sq.bib
+	pandoc -s -S --filter=pandoc-citeproc -o $@ $<
+
+## Bib
+sq.bib: sq.rmu
+sq.html: sq.rmu
+
+######################################################################
+
+## Premier league table
+
+table.html: /proc/uptime
+	wget -O $@ "www.bbc.com/sport/football/premier-league/table"
+
+## Tempering
+piano.Rout: piano.R
+
+##################################################################
+
 ## Sid Reed
 
 Sources += $(wildcard *.py)
@@ -24,6 +57,8 @@ SIR.out: SIR.py
 	$(PITH)
 
 ##################################################################
+
+greek.Rout: greek.R
 
 ## Shapes Bewketu)
 
@@ -76,11 +111,13 @@ cards.Routput.compare: cards.R
 %.compare: % %.goal
 	diff $* $*.goal > $@
 
+factor.Rout: factor.R
+
+collatz.Rout: collatz.R
+
 ####### Scoring stuff
 
 ### Exploring the Johnson distribution
-
-factor.Rout: factor.R
 
 johnson.Rout: johnson.R
 johnson_test.Rout: johnson.Rout johnson_test.R
@@ -160,7 +197,6 @@ genFit.Rout: genFit.R
 
 Sources += talk.Makefile
 
-step.deps: step.R
 step.Rout: step.R
 
 ### Makestuff
@@ -173,5 +209,11 @@ step.Rout: step.R
 
 -include $(ms)/wrapR.mk
 # -include $(ms)/stepR.mk
--include $(ms)/oldlatex.mk
+# -include $(ms)/oldlatex.mk
+
 -include $(ms)/pandoc.mk
+-include $(ms)/linkdirs.mk
+
+export autorefs = autorefs
+-include autorefs/inc.mk
+
