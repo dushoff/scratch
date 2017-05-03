@@ -21,7 +21,7 @@ include $(ms)/python.def
 
 ## Is this a good place for drafts?
 
-Sources += rabies_sq.md rabies_sq.pbm sq.rmu
+Sources += rabies_sq.md sq.rmu ptrs.csl
 
 rabies_sq.wc: rabies_sq.txt
 	wc $< > $@
