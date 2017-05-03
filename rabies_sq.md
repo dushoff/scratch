@@ -1,9 +1,16 @@
 ---
 title: Canine rabies and human health
 bibliography: sq.bib
+csl: ptrs.csl
 ---
 
-Rabies is a frightening disease, marked by horrifying symptoms, including intense pain and suffering, biting behaviour which can pose a lethal threat to loved ones, and virtually certain mortality. Rabies also poses severe financial burdens on rural villages, where vaccination to protect bite victims (and associated trips to medical centers) can use a large portion of a family's income [@CleaHamp07].
+## Bio
+
+Jonathan Dushoff is a Professor of Biology at McMaster University, specializing in theoretical, statistical, and computational investigations of the evolution and spread of infectous diseases of humans. He has worked with SACEMA faculty and students since 2007, and is a founding member of the SACEMA-led International Clinics on Infectious Disease Dynamics and Data program.
+
+## Article
+
+Rabies is a frightening disease, marked by horrifying symptoms, including intense pain and suffering, biting behaviour which can pose a lethal threat to loved ones, and virtually certain mortality following disease onset. Rabies also poses severe financial burdens on rural villages. Potentially rabid bites must be treated with a series of post-exposure shots, whose cost (along with associated trips to medical centers) can impose severe financial burdens on families [@CleaHamp07].
 
 The mainstream scientific and public health communities have seen large changes in how rabies is viewed over the last 10 years. Virtually all (95-99%) human cases of rabies are due to canine strains [@AbelKnop16], which are driven primarily by spread among domestic dog populations. Domestic-dog spread can be effectively prevented by vaccination, and canine rabies is no longer a public-health threat in wealthier parts of the world. By the turn of the century, public-health attention to rabies had languished, and scientific attention tended to focus on threats posed to people by wildlife rabies in developed countries (e.g., fox and raccoon rabies in North America, [@BiekHend07]) and on threats _to_ endangered wildlife (e.g., Ethiopian wolves [@RandWill04]).
 
