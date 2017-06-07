@@ -1,15 +1,15 @@
 # scratch
 ### Hooks for the editor to set the default target
-current: target
 
-target pngtarget pdftarget vtarget acrtarget pushtarget: poisfits.Rout 
+current: target
+include target.mk
 
 ##################################################################
 
 # make files
 
-Sources = Makefile .gitignore README.md stuff.mk LICENSE.md
-include stuff.mk
+Sources = Makefile .gitignore README.md sub.mk LICENSE.md
+include sub.mk
 # include $(ms)/perl.def
 
 ##################################################################
@@ -25,6 +25,8 @@ fakesim.Rout: sim.Rout fakesim.R
 binfits.Rout: fakesim.Rout binfits.R
 cardfits.Rout: fakesim.Rout cardfits.R
 poisfits.Rout: fakesim.Rout poisfits.R 
+
+bolker.Rout: bolker.R
 
 Archive += .fakesim.RData
 
