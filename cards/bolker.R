@@ -81,6 +81,7 @@ ffit <- glm(Inew/S ~ R0-1 + offset(log(I/N))
 )
 
 print(exp(coef(ffit)))
+print(summary(ffit))
 
 s <- rep(0,length(Rseq))
 rfit <- try(glmer(Inew/S ~ R0-1 + offset(log(I/N)) + (1|R0:tr) 
@@ -92,4 +93,5 @@ rfit <- try(glmer(Inew/S ~ R0-1 + offset(log(I/N)) + (1|R0:tr)
 ))
 
 print(rfit)
+try(print(exp(coef(ffit))))
 
