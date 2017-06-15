@@ -1,23 +1,25 @@
 # scratch
 ### Public 
-### Location???
 
 current: target
-
-target pngtarget pdftarget vtarget acrtarget pushtarget: rabies_sq.html 
+target = Makefile
+-include target.mk
+target: $(target)
 
 ##################################################################
 
 # make files
 
-Sources = Makefile .gitignore README.md stuff.mk LICENSE.md
-include stuff.mk
-include $(ms)/perl.def
-include $(ms)/python.def
+Sources = Makefile .gitignore README.md sub.mk LICENSE.md
+include sub.mk
+-include $(ms)/perl.def
+-include $(ms)/python.def
 
 ##################################################################
 
-## SQ
+ICI3D_Lab7_MCMC-Binomial.Rout: ICI3D_Lab7_MCMC-Binomial.R
+
+ICI3D_Lab8_MCMC-SI_HIV.Rout: ICI3D_Lab8_MCMC-SI_HIV.R
 
 ## Is this a good place for drafts?
 
@@ -212,7 +214,7 @@ step.Rout: step.R
 # -include $(ms)/oldlatex.mk
 
 -include $(ms)/pandoc.mk
--include $(ms)/linkdirs.mk
+-include $(ms)/modules.mk
 
 export autorefs = autorefs
 -include autorefs/inc.mk

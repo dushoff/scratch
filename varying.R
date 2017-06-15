@@ -14,7 +14,6 @@
   D<- matrix(1:N.distclass, N, N.distclass, byrow= T)
 
   b<- gam(y ~ s(D, by= X, k= 3))
-  summary(b)
 
   par(mfrow= c(1, 1))
   plot(b, shade= TRUE)
