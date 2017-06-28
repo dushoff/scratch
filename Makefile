@@ -1,10 +1,7 @@
 # scratch
 ### Public 
-### Location???
 
 current: target
-
-target pngtarget pdftarget vtarget acrtarget pushtarget: rabies_sq.html 
 -include target.mk
 
 ##################################################################
@@ -18,7 +15,9 @@ include sub.mk
 
 ##################################################################
 
-## SQ
+ICI3D_Lab7_MCMC-Binomial.Rout: ICI3D_Lab7_MCMC-Binomial.R
+
+ICI3D_Lab8_MCMC-SI_HIV.Rout: ICI3D_Lab8_MCMC-SI_HIV.R
 
 ## Is this a good place for drafts?
 
@@ -222,7 +221,7 @@ step.Rout: step.R
 # -include $(ms)/oldlatex.mk
 
 -include $(ms)/pandoc.mk
--include $(ms)/linkdirs.mk
+-include $(ms)/modules.mk
 
 # export autorefs = autorefs
 # -include autorefs/inc.mk

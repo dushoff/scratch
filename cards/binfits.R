@@ -18,5 +18,7 @@ rfit <- try(glmer(Inew/S ~ R0-1 + offset(log(I/N)) + (1|R0:tr)
 	, start = list(fixef=s,theta=1)
 ))
 
-print(exp(fixef(rfit)))
+try(print(exp(fixef(rfit))))
+
+print(rfit)
 
