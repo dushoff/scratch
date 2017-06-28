@@ -83,6 +83,7 @@ inbred.out: inbred.pl
 sum.Rout: sum.R
 sump.Rout: git_cache/sum.Rout sump.R
 
+
 ######################################################################
 
 Sources += $(wildcard *.R *.rmd *.mkd)
@@ -212,11 +213,11 @@ step.Rout: step.R
 
 ### Makestuff
 
+-include $(ms)/cache.mk
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
 -include $(ms)/wrapR.mk
--include $(ms)/cache.mk
 # -include $(ms)/stepR.mk
 # -include $(ms)/oldlatex.mk
 

@@ -1,0 +1,10 @@
+> 
+> # Generated using wrapR file sum.wrapR.r
+> source('sum.R', echo=TRUE)
+
+> x <- sum(as.numeric(0:4e+08))
+
+> print(x)
+[1] 8e+16
+> # Wrapped output file sum.wrapR.rout
+> 
