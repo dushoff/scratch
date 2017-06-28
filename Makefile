@@ -5,15 +5,16 @@
 current: target
 
 target pngtarget pdftarget vtarget acrtarget pushtarget: rabies_sq.html 
+-include target.mk
 
 ##################################################################
 
 # make files
 
-Sources = Makefile .gitignore README.md stuff.mk LICENSE.md
-include stuff.mk
-include $(ms)/perl.def
-include $(ms)/python.def
+Sources = Makefile .gitignore README.md sub.mk LICENSE.md
+include sub.mk
+-include $(ms)/perl.def
+-include $(ms)/python.def
 
 ##################################################################
 
@@ -48,6 +49,10 @@ table.html: /proc/uptime
 ## Tempering
 piano.Rout: piano.R
 
+## Survey stats (what are the odds that I got all 5 answers from 8 responses)
+
+sstats.Rout: sstats.R
+
 ##################################################################
 
 ## Sid Reed
@@ -73,6 +78,13 @@ inbred.out: inbred.pl
 	$(PUSH)
 
 ##################################################################
+
+## Rcache
+
+sum.Rout: sum.R
+sump.Rout: git_cache/sum.Rout sump.R
+
+######################################################################
 
 Sources += $(wildcard *.R *.rmd *.mkd)
 
@@ -201,19 +213,17 @@ step.Rout: step.R
 
 ### Makestuff
 
-## Change this name to download a new version of the makestuff directory
-# Makefile: start.makestuff
-
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
 -include $(ms)/wrapR.mk
+-include $(ms)/cache.mk
 # -include $(ms)/stepR.mk
 # -include $(ms)/oldlatex.mk
 
 -include $(ms)/pandoc.mk
 -include $(ms)/linkdirs.mk
 
-export autorefs = autorefs
--include autorefs/inc.mk
+# export autorefs = autorefs
+# -include autorefs/inc.mk
 
