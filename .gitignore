@@ -10,6 +10,7 @@ commit.time
 *.bbl
 
 *out
+*output
 *.RData
 *.Rlog
 *.r
@@ -21,8 +22,10 @@ local.mk
 
 cache/
 testdir/
-localdir/
 .testdir/
+localdir/
+.localdir/
 subclone_dir/
 
-*.makestuff
+*.png
+
