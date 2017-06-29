@@ -1,4 +1,4 @@
-commit.txt
+commit.time
 .*.sw*
 
 *.pdf
@@ -19,7 +19,9 @@ commit.txt
 
 local.mk
 
+cache/
 testdir/
+localdir/
 .testdir/
 subclone_dir/
 
