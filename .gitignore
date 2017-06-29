@@ -16,6 +16,11 @@ commit.time
 *.r
 .Rhistory
 
+*.deps
+*.reqs
+*.rdeps
+*.wc 
+
 *.wrapR.*
 
 local.mk
