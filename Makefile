@@ -85,6 +85,7 @@ sump.Rout: git_cache/sum.Rout sump.R
 
 ## New cache
 
+Sources += test.pl
 git_cache/test.out: test.pl
 	$(PUSH)
 

@@ -1,6 +1,7 @@
 commit.time
-.*.sw*
+target.mk
 
+.*.sw*
 *.pdf
 
 *.log
@@ -34,3 +35,13 @@ subclone_dir/
 
 *.png
 
+coexistence.html
+johnson.html
+rabies_sq.html
+*.bib
+*.bibmk
+*.mdmk
+*.point
+
+standard.local
+test.print
