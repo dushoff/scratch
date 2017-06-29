@@ -90,7 +90,8 @@ git_cache/test.out: test.pl
 
 slow/test.out: 
 
-datadir/test.out: 
+test.print: slow/test.out
+	cat $< > $@
 
 ######################################################################
 
@@ -221,7 +222,7 @@ step.Rout: step.R
 
 ### Makestuff
 
-slowdir = datadir
+# slowdir = datadir
 -include $(ms)/cache.mk
 
 -include $(ms)/git.mk
