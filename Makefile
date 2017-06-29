@@ -83,6 +83,14 @@ inbred.out: inbred.pl
 sum.Rout: sum.R
 sump.Rout: git_cache/sum.Rout sump.R
 
+## New cache
+
+git_cache/test.out: test.pl
+	$(PUSH)
+
+slow/test.out: 
+
+datadir/test.out: 
 
 ######################################################################
 
@@ -213,7 +221,9 @@ step.Rout: step.R
 
 ### Makestuff
 
+slowdir = datadir
 -include $(ms)/cache.mk
+
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
