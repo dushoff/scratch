@@ -91,6 +91,7 @@ git_cache/test.out: test.pl
 
 slow/test.out: 
 
+test.print.nocache:
 test.print: slow/test.out
 	cat $< > $@
 
