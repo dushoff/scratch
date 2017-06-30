@@ -89,9 +89,6 @@ Sources += test.pl
 git_cache/test.out: test.pl
 	$(PUSH)
 
-slow/test.out: 
-
-test.print.nocache:
 test.print: slow/test.out
 	cat $< > $@
 
