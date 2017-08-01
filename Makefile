@@ -235,5 +235,5 @@ step.Rout: step.R
 -include $(ms)/modules.mk
 
 # export autorefs = autorefs
-# -include autorefs/inc.mk
+-include autorefs/inc.mk
 
