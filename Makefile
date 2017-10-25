@@ -40,6 +40,8 @@ rabies_sq.mkd: rabies_sq.txt rabies_sq.pbm cite.pl
 rabies_sq.html: rabies_sq.md sq.bib
 	pandoc -s -S --filter=pandoc-citeproc -o $@ $<
 
+damp.html: damp.md
+
 ## Bib
 sq.bib: sq.rmu
 sq.html: sq.rmu
