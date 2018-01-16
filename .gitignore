@@ -1,6 +1,7 @@
-commit.txt
-.*.sw*
+commit.time
+target.mk
 
+.*.sw*
 *.pdf
 
 *.log
@@ -10,17 +11,37 @@ commit.txt
 *.bbl
 
 *out
+*output
 *.RData
 *.Rlog
 *.r
 .Rhistory
 
+*.deps
+*.reqs
+*.rdeps
+*.wc 
+
 *.wrapR.*
 
 local.mk
 
+cache/
 testdir/
 .testdir/
+localdir/
+.localdir/
 subclone_dir/
 
-*.makestuff
+*.png
+
+coexistence.html
+johnson.html
+rabies_sq.html
+*.bib
+*.bibmk
+*.mdmk
+*.point
+
+standard.local
+test.print

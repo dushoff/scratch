@@ -2,9 +2,7 @@
 ### Public 
 
 current: target
-target = Makefile
 -include target.mk
-target: $(target)
 
 ##################################################################
 
@@ -18,6 +16,11 @@ include sub.mk
 ##################################################################
 
 bananas.Rout: bananas.csv bananas.R
+
+FOO=a b
+
+# $(FOO:%=%.R): blah
+	# @echo yo!
 
 ICI3D_Lab7_MCMC-Binomial.Rout: ICI3D_Lab7_MCMC-Binomial.R
 
@@ -38,6 +41,8 @@ rabies_sq.mkd: rabies_sq.txt rabies_sq.pbm cite.pl
 rabies_sq.html: rabies_sq.md sq.bib
 	pandoc -s -S --filter=pandoc-citeproc -o $@ $<
 
+damp.html: damp.md
+
 ## Bib
 sq.bib: sq.rmu
 sq.html: sq.rmu
@@ -51,6 +56,10 @@ table.html: /proc/uptime
 
 ## Tempering
 piano.Rout: piano.R
+
+## Survey stats (what are the odds that I got all 5 answers from 8 responses)
+
+sstats.Rout: sstats.R
 
 ##################################################################
 
@@ -77,6 +86,22 @@ inbred.out: inbred.pl
 	$(PUSH)
 
 ##################################################################
+
+## Rcache
+
+sum.Rout: sum.R
+sump.Rout: git_cache/sum.Rout sump.R
+
+## New cache
+
+Sources += test.pl
+git_cache/test.out: test.pl
+	$(PUSH)
+
+test.print: slow/test.out
+	cat $< > $@
+
+######################################################################
 
 Sources += $(wildcard *.R *.rmd *.mkd)
 
@@ -205,8 +230,8 @@ step.Rout: step.R
 
 ### Makestuff
 
-## Change this name to download a new version of the makestuff directory
-# Makefile: start.makestuff
+# slowdir = datadir
+-include $(ms)/cache.mk
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
@@ -218,6 +243,6 @@ step.Rout: step.R
 -include $(ms)/pandoc.mk
 -include $(ms)/modules.mk
 
-export autorefs = autorefs
+# export autorefs = autorefs
 -include autorefs/inc.mk
 
