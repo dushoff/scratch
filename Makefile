@@ -17,6 +17,8 @@ include sub.mk
 
 ##################################################################
 
+bananas.Rout: bananas.csv bananas.R
+
 ICI3D_Lab7_MCMC-Binomial.Rout: ICI3D_Lab7_MCMC-Binomial.R
 
 ICI3D_Lab8_MCMC-SI_HIV.Rout: ICI3D_Lab8_MCMC-SI_HIV.R
