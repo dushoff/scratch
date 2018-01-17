@@ -19,6 +19,13 @@ include sub.mk
 roswell_nmds.Rout: roswell_nmds.R
 nmds.Rout: nmds.R
 
+bananas.Rout: bananas.csv bananas.R
+
+FOO=a b
+
+# $(FOO:%=%.R): blah
+	# @echo yo!
+
 ICI3D_Lab7_MCMC-Binomial.Rout: ICI3D_Lab7_MCMC-Binomial.R
 
 ICI3D_Lab8_MCMC-SI_HIV.Rout: ICI3D_Lab8_MCMC-SI_HIV.R
@@ -37,6 +44,8 @@ rabies_sq.mkd: rabies_sq.txt rabies_sq.pbm cite.pl
 ## Experimental branch where we learn how to use markdown properly. Looking better
 rabies_sq.html: rabies_sq.md sq.bib
 	pandoc -s -S --filter=pandoc-citeproc -o $@ $<
+
+damp.html: damp.md
 
 ## Bib
 sq.bib: sq.rmu
@@ -92,8 +101,6 @@ sump.Rout: git_cache/sum.Rout sump.R
 Sources += test.pl
 git_cache/test.out: test.pl
 	$(PUSH)
-
-slow/test.out: 
 
 test.print: slow/test.out
 	cat $< > $@
@@ -241,5 +248,5 @@ step.Rout: step.R
 -include $(ms)/modules.mk
 
 # export autorefs = autorefs
-# -include autorefs/inc.mk
+-include autorefs/inc.mk
 
