@@ -156,7 +156,7 @@ johnson.Rout: johnson.R
 johnson_test.Rout: johnson.Rout johnson_test.R
 johnson.mkd: 
 johnson.html: johnson.rmd 
-johnson.rmd: johnson_test.Rout-0.png johnson_test.Rout-1.png johnson_test.Rout-2.png
+## johnson.rmd: johnson_test.Rout-0.png johnson_test.Rout-1.png johnson_test.Rout-2.png
 
 coexistence.html: coexistence.mkd
 

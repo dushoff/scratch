@@ -1,47 +1,49 @@
-commit.time
+## Changes in .gitignore may be over-written!
+## Either:
+## * Change .ignore (or Makefile) and remake .gitignore
+## * Change .gitignore manually, and add the same things to the bottom 
+## of .ignore, so that they will be there when .gitignore is remade
+
+## Content from .ignore
+local.mk
 target.mk
-
 .*.sw*
-*.pdf
+make.log
 
-*.log
-*.aux
-.*.aux
-*.blg
-*.bbl
-
-*out
-*output
+## content from makestuff
+slow
+commit.time
+commit.default
+dotdir/
+clonedir/
+up.time
+all.time
+.clean_dir
+*.oldfile
+*.olddiff
+*.page.pdf
+*.wide.pdf
 *.RData
 *.Rlog
-*.r
 .Rhistory
-
-*.deps
-*.reqs
-*.rdeps
-*.wc 
-
+*.Rout*
 *.wrapR.*
-
-local.mk
-
-cache/
-testdir/
-.testdir/
-localdir/
-.localdir/
-subclone_dir/
-
-*.png
-
-coexistence.html
-johnson.html
-rabies_sq.html
-*.bib
-*.bibmk
-*.mdmk
-*.point
-
-standard.local
-test.print
+*.Rds
+slow
+commit.time
+commit.default
+dotdir/
+clonedir/
+up.time
+all.time
+.clean_dir
+*.oldfile
+*.olddiff
+*.page.pdf
+*.wide.pdf
+*.RData
+*.Rlog
+.Rhistory
+*.Rout*
+*.wrapR.*
+*.Rds
