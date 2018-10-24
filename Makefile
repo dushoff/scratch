@@ -8,7 +8,7 @@ current: target
 
 # make files
 
-Sources = Makefile .gitignore README.md sub.mk LICENSE.md
+Sources = Makefile README.md sub.mk LICENSE.md
 include sub.mk
 -include $(ms)/perl.def
 -include $(ms)/python.def
