@@ -235,7 +235,7 @@ step.Rout: step.R
 ### Makestuff
 
 # slowdir = datadir
--include $(ms)/cache.mk
+# -include $(ms)/cache.mk
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
