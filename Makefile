@@ -8,8 +8,7 @@ current: target
 
 # make files
 
-Sources = Makefile README.md sub.mk LICENSE.md
-include sub.mk
+Sources = Makefile README.md LICENSE.md
 -include $(ms)/perl.def
 -include $(ms)/python.def
 
@@ -234,19 +233,18 @@ step.Rout: step.R
 
 ### Makestuff
 
-# slowdir = datadir
-# -include $(ms)/cache.mk
+Sources += Makefile
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
+Ignore += makestuff
+msrepo = https://github.com/dushoff
 
--include $(ms)/wrapR.mk
-# -include $(ms)/stepR.mk
-# -include $(ms)/oldlatex.mk
+Makefile: makestuff/00.stamp
+makestuff/%.stamp:
+	- $(RM) makestuff/*.stamp
+	(cd makestuff && $(MAKE) pull) || git clone $(msrepo)/makestuff
+	touch $@
 
--include $(ms)/pandoc.mk
--include $(ms)/modules.mk
+-include makestuff/os.mk
 
-# export autorefs = autorefs
--include autorefs/inc.mk
-
+-include makestuff/git.mk
+-include makestuff/visual.mk
